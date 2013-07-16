@@ -1,0 +1,85 @@
+<html>
+<head>
+    <title>ReactiveMongo Play Autosource Template</title>
+</head>
+<body>
+<div>
+    <p>
+        You've just created a simple Play application providing a usable Play Autosource for ReactiveMongo. <br/>
+        With it, you can bootstrap in a few lines an automatic CRUD asynchronous datasource with REST endpoints back'ed on ReactiveMongo. It's quite useful to :
+        <ul>
+            <li>Kickstart an application and test your frontend</li> 
+            <li>Build iteratively your models from blob to static (or just go on using blobs with some Json validations)</li>
+            <li>Expose your existing models as REST sources in a very few lines</li>
+        </ul>
+    </p>
+
+    <p>
+        The concept is explained more precisely in these articles:
+        <ul>
+            <li><a href="http://mandubian.com/2013/06/11/play-autosource/">2'30 Kickstart Full REST & CRUD Datasource in Play App</a></li>
+            <li><a href="http://mandubian.com/2013/07/11/play-autosource-datomisca/">Play AutoSource & Datomisca: Proofing the Concept on Datomic, a Schema DB</a></li>
+        </ul>
+    </p>
+
+    <p>
+        Read these articles and look at code in <code>app/Application.scala</code> and <code>conf/routes</code>, it's quite explicit and provides everything to start.
+    </p>
+    <p>
+        To test it:
+        <ol>
+            <li>Run a Mongo Server on your local computer</li>
+            <li>Just run the application by launching classic <code>sbt</code></li>
+        </ol>
+    </p>
+    <p>
+        <i>Play-Autosource</i> concept has been implemented for :
+        <ul>
+            <li><a href="http://www.datomic.com">Datomic</a> based on <a href="http://pellucidanalytics.github.io/datomisca/">Datomisca</a></li>
+            <li><a href="http://www.couchbase.com/">CouchBase</a></b> contributed by Mathieu Ancelin <a href="https://twitter.com/TrevorReznik">@TrevorReznik</a></li>
+        </ul>
+        <br/>
+        <i>Maybe soon Activator's template for those Autosources...</i>
+    </p>
+</div>
+<div>
+    <h2>Autosource Standard Routes</h2>
+
+    <h3>Get / Find / Stream</h3>
+
+    <ul>
+    <li>GET /persons?&#8230;    -> Find by query</li>
+    <li>GET /persons/ID     -> Find by ID</li>
+    <li>GET /persons/stream -> Find by query &amp; stream result by page</li>
+    </ul>
+
+
+    <h3>Insert / Batch / Find</h3>
+
+    <ul>
+    <li>POST /persons + BODY -> Insert</li>
+    <li>POST /persons/find + BODY -> find by query (when query is too complex to be in a GET)</li>
+    <li>POST /persons/batch  + BODY -> batch insert (multiple)</li>
+    </ul>
+
+
+    <h3>Update / batch</h3>
+
+    <ul>
+    <li>PUT  /persons/ID   + BODY  -> Update by ID</li>
+    <li>PUT  /persons/ID/partial   + BODY  -> Update partially by ID</li>
+    <li>PUT  /persons/batch   -> batch update (multiple)</li>
+    </ul>
+
+
+    <h3>Delete / Batch</h3>
+
+    <ul>
+    <li>DELETE /persons/ID    -> delete by ID</li>
+    <li>DELETE /persons/batch + BODY -> batch delete (multiple)</li>
+    </ul>
+
+</div>
+
+</body>
+</html>
